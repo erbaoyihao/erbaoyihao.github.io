@@ -21,6 +21,7 @@
   --border: 3px solid var(--ink);
   --shadow: 5px 5px 0 var(--ink);
   --shadow-sm: 3px 3px 0 var(--ink);
+  --section-gap: 40px;
 
   --max-width: 980px;
   --font: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
@@ -77,6 +78,9 @@ img { max-width: 100%; }
 }
 
 .page-subtitle { color: var(--ink-soft); margin-top: 18px; }
+
+/* 教学页：课程卡片与答疑说明之间留出间距 */
+.teaching-message { margin-top: var(--section-gap); }
 
 /* ---------- 导航 ---------- */
 .site-header {
