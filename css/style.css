@@ -369,6 +369,18 @@ a.card:active {
   object-fit: cover;
   border-radius: calc(var(--radius) - 4px);
 }
+/* 完整显示（不裁切）的变体：横竖版混排时用 */
+.photo-slot.photo-full {
+  aspect-ratio: auto;
+  border-style: solid;
+  padding: 0;
+  overflow: hidden;
+}
+.photo-slot.photo-full img {
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
 
 /* ---------- 学生名录 ---------- */
 .student-grid {
