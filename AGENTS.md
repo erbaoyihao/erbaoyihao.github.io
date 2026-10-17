@@ -8,38 +8,64 @@ This repository is the source for the GitHub Pages **user site** `erbaoyihao.git
 (remote: `https://github.com/erbaoyihao/erbaoyihao.github.io`). The site's content is
 served directly from the `main` branch at `https://erbaoyihao.github.io`.
 
-**Current state:** the repository was just initialized (single commit "Initial commit")
-and contains only a one-line `README.md` with the repository name. There is **no source
-code, no build system, and no site content yet** — the actual site has not been created.
+It is a Chinese-language personal website covering 科研 (research), 教学 (teaching),
+生活 (life/essays/photography), 简历/CV, and 历届毕业生 (graduated students).
+Visual style: "多巴胺配色" — bright clashing accent colors, rounded cards with thick
+borders and hard offset shadows, playful decorations; body text stays clean and readable.
 
 ## Repository layout
 
 ```
 .
-├── .git/
-├── README.md      # One line: "# erbaoyihao.github.io"
-└── AGENTS.md      # This file
+├── index.html       # 首页：自我介绍 + 板块入口卡片
+├── research.html    # 科研：方向标签、论文（按年份分组）、项目卡片
+├── teaching.html    # 教学：课程卡片、讲义链接
+├── life.html        # 生活：随笔列表 + 摄影网格
+├── cv.html          # 简历：教育/工作经历时间线、联系方式
+├── students.html    # 历届毕业生：按届分组的 student-chip
+├── 404.html         # 彩蛋 404 页
+├── css/style.css    # 全部样式：设计令牌（:root 变量）+ 组件 + 响应式
+├── js/main.js       # 移动端导航开合 + 当前页高亮
+├── assets/img/      # 图片（头像、照片）放这里
+├── README.md
+└── AGENTS.md
 ```
 
 ## Technology stack
 
-None is established yet. GitHub Pages supports two broad options; whichever the author
-chooses will define the stack and should be documented here when introduced:
-
-- **Plain static files** — commit `index.html`, CSS, and JS directly at the repository
-  root; GitHub Pages serves them as-is with no build step.
-- **Jekyll** (GitHub Pages' default static site generator) — a `_config.yml` and
-  Markdown/liquid content that GitHub builds automatically on push. A plain `Gemfile`
-  or `_config.yml` in the root will indicate this choice.
-- An externally built site (e.g. Hugo, Next.js, Astro) would require a build command
-  and usually a GitHub Actions workflow — none exists today.
+**Plain static HTML/CSS/JS — no build step, no dependencies, no frameworks.**
+GitHub Pages serves the files as-is. Keep it that way: do not introduce Jekyll,
+npm, or a bundler without asking the site owner first.
 
 ## Build and test commands
 
-There are currently **no build, test, lint, or CI commands** — no `package.json`,
-`Gemfile`, `_config.yml`, or GitHub Actions workflow exists. When a stack is added,
-record the exact commands here (e.g. how to serve the site locally and how to verify
-changes before pushing).
+There is no build. To preview locally:
+
+```bash
+python3 -m http.server 8000   # then open http://localhost:8000
+```
+
+Opening an HTML file directly in a browser also works (all paths are relative).
+Before pushing, click through every page and check that navigation links resolve.
+
+## Editing conventions
+
+- **Colors and spacing**: change the CSS variables in `:root` at the top of
+  `css/style.css` — do not hardcode new color values in page markup. Per-section
+  accent color comes from `theme-blue` / `theme-green` / `theme-coral` /
+  `theme-yellow` classes on `<main>`.
+- **Shared header/footer**: each page duplicates the same `<header class="site-header">`
+  and `<footer class="site-footer">` markup (no templating). When changing the
+  navigation, update **all seven** HTML files.
+- **Content placeholders**: real personal info is marked with `TODO:` comments in
+  the HTML. Lists (papers, courses, students, timeline entries) follow repeatable
+  block patterns — copy an existing block to add an entry.
+- **Fonts**: system font stack only (PingFang SC / Microsoft YaHei / ...). Do not
+  add webfont CDNs.
+- Placeholder name in the current content is「二宝」; it is meant to be replaced
+  with the owner's real name/nickname.
+- Accessibility: keep decorative elements `aria-hidden`; honor
+  `prefers-reduced-motion` (already handled in CSS).
 
 ## Deployment
 
@@ -53,8 +79,7 @@ changes before pushing).
 
 - Git default branch: `main`.
 - No code style, commit-message convention, or review process is established yet.
-- Keep this `AGENTS.md` up to date as content and tooling are added — it is currently
-  the only authoritative description of the project.
+- Keep this `AGENTS.md` up to date as content and tooling are added.
 
 ## Security considerations
 

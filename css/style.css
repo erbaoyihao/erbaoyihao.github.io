@@ -1,0 +1,424 @@
+/* ============================================================
+   二宝的小站 · 多巴胺配色风
+   调色板、组件与布局都从这里改
+   ============================================================ */
+
+/* ---------- 设计令牌 ---------- */
+:root {
+  --bg: #FFF9F0;          /* 米白背景 */
+  --ink: #2B2B2B;         /* 正文墨色 */
+  --ink-soft: #6B6259;    /* 次要文字 */
+  --paper: #FFFFFF;       /* 卡片底色 */
+
+  --yellow: #FFD93D;      /* 鹅黄 · 简历 */
+  --green: #6BCB77;       /* 草绿 · 教学 */
+  --blue: #4D96FF;        /* 天蓝 · 科研 */
+  --coral: #FF6B6B;       /* 珊瑚红 · 生活 */
+  --purple: #B983FF;      /* 点缀紫 */
+
+  --radius: 18px;
+  --radius-sm: 999px;     /* 胶囊 */
+  --border: 3px solid var(--ink);
+  --shadow: 5px 5px 0 var(--ink);
+  --shadow-sm: 3px 3px 0 var(--ink);
+
+  --max-width: 980px;
+  --font: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+          "Source Han Sans SC", sans-serif;
+}
+
+/* ---------- 基础 ---------- */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink);
+  background-color: var(--bg);
+  /* 淡淡的圆点纹理，增加活泼感 */
+  background-image: radial-gradient(#f0e4d0 1.2px, transparent 1.2px);
+  background-size: 26px 26px;
+}
+
+h1, h2, h3 { line-height: 1.3; margin: 0 0 .5em; }
+p { margin: 0 0 1em; }
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section { padding: 48px 0; }
+
+/* 板块主题色：在 <main> 或 <section> 上加 theme-blue / theme-green / theme-coral / theme-yellow */
+.theme-blue   { --accent: var(--blue); }
+.theme-green  { --accent: var(--green); }
+.theme-coral  { --accent: var(--coral); }
+.theme-yellow { --accent: var(--yellow); }
+
+/* ---------- 页面大标题 ---------- */
+.page-title {
+  display: inline-block;
+  font-size: 2.2rem;
+  padding: 6px 22px;
+  background: var(--accent, var(--yellow));
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transform: rotate(-1.2deg);
+}
+
+.page-subtitle { color: var(--ink-soft); margin-top: 18px; }
+
+/* ---------- 导航 ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: var(--border);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+}
+
+.nav-logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+.nav-logo:hover { text-decoration: none; }
+.nav-logo .dot { color: var(--coral); }
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-links a {
+  display: block;
+  padding: 6px 14px;
+  color: var(--ink);
+  font-weight: 600;
+  border: 3px solid transparent;
+  border-radius: var(--radius-sm);
+}
+.nav-links a:hover {
+  text-decoration: none;
+  border-color: var(--ink);
+  background: var(--yellow);
+}
+.nav-links a[aria-current="page"] {
+  border-color: var(--ink);
+  background: var(--green);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 1.4rem;
+  padding: 4px 12px;
+  background: var(--yellow);
+  border: var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* ---------- 首屏 Hero ---------- */
+.hero {
+  position: relative;
+  padding: 72px 0 56px;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 900;
+}
+
+.hero .highlight {
+  background: linear-gradient(transparent 55%, var(--yellow) 55%);
+  padding: 0 4px;
+}
+
+.hero p.lead { font-size: 1.15rem; max-width: 34em; }
+
+/* 漂浮的小装饰（星星 / 圆点 / 叉叉），HTML 里加 <span class="deco deco-star"> */
+.deco {
+  position: absolute;
+  display: inline-block;
+  pointer-events: none;
+}
+.deco-star {
+  width: 26px; height: 26px;
+  background: var(--yellow);
+  clip-path: polygon(50% 0, 63% 37%, 100% 50%, 63% 63%, 50% 100%, 37% 63%, 0 50%, 37% 37%);
+  animation: spin 9s linear infinite;
+}
+.deco-dot {
+  width: 18px; height: 18px;
+  border: var(--border);
+  border-radius: 50%;
+  background: var(--coral);
+  animation: bob 3.5s ease-in-out infinite;
+}
+.deco-cross {
+  width: 22px; height: 22px;
+  animation: spin 12s linear infinite reverse;
+}
+.deco-cross::before, .deco-cross::after {
+  content: "";
+  position: absolute;
+  inset: 40% 0;
+  background: var(--blue);
+  border-radius: 4px;
+}
+.deco-cross::after { transform: rotate(90deg); }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes bob { 50% { transform: translateY(-14px); } }
+
+/* ---------- 卡片 ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  display: block;
+  padding: 24px;
+  background: var(--paper);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+a.card:hover {
+  text-decoration: none;
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+a.card:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.card .card-tag {
+  display: inline-block;
+  font-size: .85rem;
+  font-weight: 700;
+  padding: 2px 12px;
+  margin-bottom: 12px;
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--accent, var(--yellow));
+}
+.card h3 { font-size: 1.25rem; margin-bottom: .3em; }
+.card p { color: var(--ink-soft); margin: 0; }
+
+/* ---------- 贴纸标签 ---------- */
+.badge {
+  display: inline-block;
+  font-size: .85rem;
+  font-weight: 700;
+  padding: 3px 14px;
+  margin: 0 8px 8px 0;
+  background: var(--paper);
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+.badge.b-blue   { background: var(--blue);   color: #fff; }
+.badge.b-green  { background: var(--green); }
+.badge.b-coral  { background: var(--coral);  color: #fff; }
+.badge.b-yellow { background: var(--yellow); }
+.badge.b-purple { background: var(--purple); color: #fff; }
+
+/* ---------- 按钮 ---------- */
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  padding: 10px 24px;
+  color: var(--ink);
+  background: var(--accent, var(--yellow));
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover {
+  text-decoration: none;
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+.btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+/* ---------- 分隔彩条 ---------- */
+.confetti-bar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 8px 0;
+}
+.confetti-bar i {
+  width: 12px; height: 12px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+}
+.confetti-bar i:nth-child(4n+1) { background: var(--yellow); }
+.confetti-bar i:nth-child(4n+2) { background: var(--green); }
+.confetti-bar i:nth-child(4n+3) { background: var(--blue); }
+.confetti-bar i:nth-child(4n+4) { background: var(--coral); }
+
+/* ---------- 论文 / 随笔列表 ---------- */
+.year-heading {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 2px 16px;
+  margin: 28px 0 14px;
+  background: var(--accent, var(--blue));
+  color: #fff;
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.entry-list { list-style: none; margin: 0; padding: 0; }
+
+.entry {
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  background: var(--paper);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.entry .entry-title { font-weight: 700; }
+.entry .entry-meta { font-size: .92rem; color: var(--ink-soft); }
+
+/* ---------- 时间线（简历） ---------- */
+.timeline {
+  margin: 0;
+  padding: 0 0 0 26px;
+  list-style: none;
+  border-left: 3px dashed var(--ink);
+}
+.timeline li { position: relative; margin-bottom: 26px; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -37px; top: 6px;
+  width: 14px; height: 14px;
+  background: var(--accent, var(--yellow));
+  border: var(--border);
+  border-radius: 50%;
+}
+.timeline .t-period {
+  display: inline-block;
+  font-size: .85rem;
+  font-weight: 700;
+  padding: 1px 12px;
+  margin-bottom: 4px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-sm);
+}
+.timeline .t-title { font-weight: 700; }
+.timeline .t-desc { color: var(--ink-soft); font-size: .95rem; margin: 0; }
+
+/* ---------- 照片墙占位 ---------- */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+.photo-slot {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  font-size: .9rem;
+  background: var(--paper);
+  border: 3px dashed var(--ink-soft);
+  border-radius: var(--radius);
+}
+.photo-slot img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 4px);
+}
+
+/* ---------- 学生名录 ---------- */
+.student-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+.student-chip {
+  padding: 12px 18px;
+  background: var(--paper);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.student-chip .s-name { font-weight: 700; }
+.student-chip .s-note { font-size: .88rem; color: var(--ink-soft); }
+
+/* ---------- 页脚 ---------- */
+.site-footer {
+  margin-top: 64px;
+  padding: 28px 0;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: .92rem;
+  border-top: var(--border);
+  background: var(--paper);
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 720px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px; left: 0; right: 0;
+    flex-direction: column;
+    padding: 12px 20px 18px;
+    background: var(--bg);
+    border-bottom: var(--border);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { text-align: center; }
+
+  .hero { padding: 48px 0 40px; }
+  .page-title { font-size: 1.7rem; }
+  .timeline { padding-left: 20px; }
+  .timeline li::before { left: -31px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deco-star, .deco-dot, .deco-cross { animation: none; }
+  html { scroll-behavior: auto; }
+}
