@@ -3,19 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- TODO: 把「二宝」替换为你的名字 -->
   <title>二宝的小站 · 首页</title>
-  <meta name="description" content="二宝的个人主页：科研、教学与生活。">
+  <meta name="description" content="王芸的个人主页：在河南科技学院从事作物科研与教学，记录研究、课程和生活。">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">跳到正文</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="主导航">
+      <a class="nav-logo" href="index.html" aria-label="二宝的小站 · 首页">二宝<span class="dot" aria-hidden="true">✳</span></a>
+      <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="site-nav">☰</button>
+      <ul class="nav-links" id="site-nav">
+        <li><a href="index.html" aria-current="page">首页</a></li>
+        <li><a href="research.html">科研</a></li>
+        <li><a href="teaching.html">教学</a></li>
+        <li><a href="life.html">生活</a></li>
+        <li><a href="students.html">毕业生</a></li>
+        <li><a href="cv.html">简历</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main id="main-content">
     <section class="hero container" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="eyebrow">二宝的小站 / A WORK IN PROGRESS</p>
         <h1 id="hero-title">好好科研，<br>认真<span class="scribble">生活。</span></h1>
+        <p class="hero-intro">我是王芸，河南科技学院生命科学学院教授（内聘），研究作物产量与适应性的分子机制，也给学生上课。</p>
         <p class="hero-description">在田间找问题，在实验室找答案。<br>也在课堂和生活里，收集新的好奇心。</p>
         <div class="hero-actions">
           <a class="btn" href="research.html">看看我的研究 <span aria-hidden="true">↗</span></a>
@@ -23,6 +37,13 @@
         </div>
         <p class="status-note">今日状态：有想法，正在验证。</p>
       </div>
+      <figure class="hero-portrait">
+        <div class="portrait-frame">
+          <span class="portrait-label">田间观察员 · 卡通版</span>
+          <a class="photo-link" href="assets/img/home-field-portrait.jpg" target="_blank" rel="noopener" aria-label="查看原图（新标签页）：麦田中的卡通人物，戴着眼镜、微笑并比着耶"><img src="assets/optimized/home-field-portrait-960.jpg" srcset="assets/optimized/home-field-portrait-480.jpg 480w, assets/optimized/home-field-portrait-960.jpg 960w" sizes="(max-width: 720px) calc(100vw - 78px), (max-width: 900px) 40vw, 430px" width="1897" height="1280" alt="麦田中的卡通人物，戴着眼镜、微笑并比着耶" fetchpriority="high" decoding="async"></a>
+        </div>
+        <figcaption>研究对象比较安静。<span aria-hidden="true">↖</span></figcaption>
+      </figure>
     </section>
 
     <section class="container" aria-labelledby="directory-title">
@@ -52,6 +73,11 @@
             <div><h3>毕业生</h3><p>一起走过一程，各自继续生长。</p></div>
             <span class="directory-arrow" aria-hidden="true">↗</span>
           </a>
+          <a class="directory-link" href="cv.html">
+            <span class="directory-number" aria-hidden="true">05</span>
+            <div><h3>简历与联系</h3><p>教育与工作经历，以及如何找到我。</p></div>
+            <span class="directory-arrow" aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
     </section>
@@ -67,7 +93,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© 2026 二宝 · 用好奇心维护的小站 · <a href="https://github.com/erbaoyihao/erbaoyihao.github.io">本站源码</a></p>
+      <p>© 2026 二宝 · 用好奇心维护的小站 · <a href="index.html">首页</a> · <a href="cv.html#contact">联系我</a> · <a href="https://github.com/erbaoyihao/erbaoyihao.github.io">本站源码</a></p>
       <p class="footer-note">认真生活，允许跑题。</p>
     </div>
   </footer>

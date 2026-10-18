@@ -3,11 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="页面不存在：这个页面尚未被观测到，请回到首页继续浏览。">
   <title>404 · 这个页面尚未被观测到</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">跳到正文</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="主导航">
+      <a class="nav-logo" href="index.html" aria-label="二宝的小站 · 首页">二宝<span class="dot" aria-hidden="true">✳</span></a>
+      <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="site-nav">☰</button>
+      <ul class="nav-links" id="site-nav">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="research.html">科研</a></li>
+        <li><a href="teaching.html">教学</a></li>
+        <li><a href="life.html">生活</a></li>
+        <li><a href="students.html">毕业生</a></li>
+        <li><a href="cv.html">简历</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main id="main-content" class="container lost-page">
     <svg class="lost-magnifier" viewBox="0 0 100 100" fill="none" aria-hidden="true">
@@ -23,7 +40,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© 2026 二宝 · 用好奇心维护的小站 · <a href="https://github.com/erbaoyihao/erbaoyihao.github.io">本站源码</a></p>
+      <p>© 2026 二宝 · 用好奇心维护的小站 · <a href="index.html">首页</a> · <a href="cv.html#contact">联系我</a> · <a href="https://github.com/erbaoyihao/erbaoyihao.github.io">本站源码</a></p>
       <p class="footer-note">认真生活，允许跑题。</p>
     </div>
   </footer>
