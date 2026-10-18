@@ -9,11 +9,12 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">跳到正文</a>
   <header class="site-header">
-    <nav class="nav container">
-      <a class="nav-logo" href="index.html">二宝<span class="dot">.</span></a>
-      <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button>
-      <ul class="nav-links">
+    <nav class="nav container" aria-label="主导航">
+      <a class="nav-logo" href="index.html">二宝<span class="dot" aria-hidden="true">✳</span></a>
+      <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false" aria-controls="site-nav">☰</button>
+      <ul class="nav-links" id="site-nav">
         <li><a href="index.html">首页</a></li>
         <li><a href="research.html">科研</a></li>
         <li><a href="teaching.html">教学</a></li>
@@ -24,66 +25,72 @@
     </nav>
   </header>
 
-  <main>
-    <!-- 首屏 -->
-    <section class="hero container">
-      <span class="deco deco-star" aria-hidden="true" style="top: 18%; right: 12%;"></span>
-      <span class="deco deco-dot" aria-hidden="true" style="top: 60%; right: 22%;"></span>
-      <span class="deco deco-cross" aria-hidden="true" style="top: 30%; right: 32%;"></span>
-
-      <p>👋 你好呀，欢迎来到我的小站！</p>
-      <h1>我是<span class="highlight">二宝</span>，<br>一名爱折腾的研究者和老师。</h1>
-      <div class="card-grid">
-        <div class="card theme-coral">
-          <span class="card-tag">关于我</span>
-          <p>从 18 岁到 30 岁，算是把青春年华写在了祖国的大地上。希望能与你亦师亦友，治学时严谨，相处时自在。可以一起学，也可以一起玩。有问题随时探讨，有想法随时交流。</p>
+  <main id="main-content">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">二宝的小站 / A WORK IN PROGRESS</p>
+        <h1 id="hero-title">认真研究，<br>偶尔<span class="scribble">跑题。</span></h1>
+        <p class="hero-intro">我是二宝，一名爱折腾的研究者和老师。</p>
+        <p class="hero-description">在田间找问题，在实验室找答案。<br>也在课堂和生活里，收集新的好奇心。</p>
+        <div class="hero-actions">
+          <a class="btn" href="research.html">看看我的研究 <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-secondary" href="teaching.html">同学，这边上课 <span aria-hidden="true">→</span></a>
         </div>
-        <div class="card theme-blue">
-          <span class="card-tag">关于你</span>
-          <p>希望你有：主观能动性与持续学习的能力。起点并非关键，重要的是愿意学、肯琢磨、能自己向前探索。清楚自己想要什么，而后全力以赴，并心怀珍惜。</p>
-        </div>
+        <p class="status-note">今日状态：有想法，正在验证。</p>
       </div>
-      <p>
-        <a class="btn" style="--accent: var(--blue);" href="research.html">看看我的研究</a>
-        <a class="btn" style="--accent: var(--green);" href="teaching.html">去上课</a>
-      </p>
+      <figure class="hero-portrait">
+        <div class="portrait-frame">
+          <span class="portrait-label">田间观察员 · 卡通版</span>
+          <img src="assets/img/home-field-portrait.jpg" width="1897" height="1280" alt="麦田中的卡通人物，戴着眼镜、微笑并比着耶" fetchpriority="high" decoding="async">
+        </div>
+        <figcaption>研究对象比较安静。<span aria-hidden="true">↖</span></figcaption>
+      </figure>
     </section>
 
-    <div class="confetti-bar" aria-hidden="true">
-      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-    </div>
+    <section class="container" aria-labelledby="directory-title">
+      <div class="home-directory">
+        <div class="section-heading">
+          <h2 id="directory-title">本站目录</h2>
+          <span class="margin-note">内容不多，好奇心管够。↙</span>
+        </div>
+        <div class="directory-grid">
+          <a class="directory-link" href="research.html">
+            <span class="directory-number" aria-hidden="true">01</span>
+            <div><h3>科研</h3><p>和一些尚未想明白的问题，长期相处。</p></div>
+            <span class="directory-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="directory-link" href="teaching.html">
+            <span class="directory-number" aria-hidden="true">02</span>
+            <div><h3>教学</h3><p>把复杂的东西讲清楚，努力中。</p></div>
+            <span class="directory-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="directory-link" href="life.html">
+            <span class="directory-number" aria-hidden="true">03</span>
+            <div><h3>生活</h3><p>离开电脑之后，也有一些发现。</p></div>
+            <span class="directory-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="directory-link" href="students.html">
+            <span class="directory-number" aria-hidden="true">04</span>
+            <div><h3>毕业生</h3><p>一起走过一程，各自继续生长。</p></div>
+            <span class="directory-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-    <!-- 板块入口 -->
-    <section class="section container">
-      <h2>这个小站里有什么？</h2>
-      <div class="card-grid">
-        <a class="card theme-blue" href="research.html">
-          <span class="card-tag">科研</span>
-          <h3>论文与项目</h3>
-          <p>我的研究方向、发表的论文和正在折腾的项目。</p>
-        </a>
-        <a class="card theme-green" href="teaching.html">
-          <span class="card-tag">教学</span>
-          <h3>课程与讲义</h3>
-          <p>我教的课、课程资料，以及给同学们的一些学习建议。</p>
-        </a>
-        <a class="card theme-coral" href="life.html">
-          <span class="card-tag">生活</span>
-          <h3>随笔与摄影</h3>
-          <p>不务正业的部分：随手写、随手拍、随手记。</p>
-        </a>
-        <a class="card theme-yellow" href="students.html">
-          <span class="card-tag">毕业生</span>
-          <h3>历届毕业生</h3>
-          <p>和我一起战斗过的同学们，他们现在都去了哪里。</p>
-        </a>
+    <section class="about-section container" aria-labelledby="about-title">
+      <div class="about-label"><h2 id="about-title">先认识一下</h2><p>严谨，也自在。</p></div>
+      <div class="about-notes">
+        <div><h3>关于我</h3><p>从 18 岁到 30 岁，算是把青春年华写在了祖国的大地上。希望能与你亦师亦友，治学时严谨，相处时自在。可以一起学，也可以一起玩。有问题随时探讨，有想法随时交流。</p></div>
+        <div><h3>关于你</h3><p>希望你有：主观能动性与持续学习的能力。起点并非关键，重要的是愿意学、肯琢磨、能自己向前探索。清楚自己想要什么，而后全力以赴，并心怀珍惜。</p></div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
+    <div class="container footer-inner">
       <p>© 2026 二宝 · 用好奇心维护的小站 · <a href="https://github.com/erbaoyihao/erbaoyihao.github.io">本站源码</a></p>
+      <p class="footer-note">认真生活，允许跑题。</p>
     </div>
   </footer>
 

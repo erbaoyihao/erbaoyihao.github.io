@@ -8,11 +8,12 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">跳到正文</a>
   <header class="site-header">
-    <nav class="nav container">
-      <a class="nav-logo" href="index.html">二宝<span class="dot">.</span></a>
-      <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button>
-      <ul class="nav-links">
+    <nav class="nav container" aria-label="主导航">
+      <a class="nav-logo" href="index.html">二宝<span class="dot" aria-hidden="true">✳</span></a>
+      <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false" aria-controls="site-nav">☰</button>
+      <ul class="nav-links" id="site-nav">
         <li><a href="index.html">首页</a></li>
         <li><a href="research.html">科研</a></li>
         <li><a href="teaching.html">教学</a></li>
@@ -23,10 +24,59 @@
     </nav>
   </header>
 
-  <main class="theme-coral">
+  <main id="main-content" class="theme-coral">
     <section class="section container">
+      <p class="page-kicker">OFF THE RECORD / 03</p>
       <h1 class="page-title">生活</h1>
       <p class="page-subtitle">不搞科研的时候，我在写这些东西、拍这些照片。</p>
+      <p class="page-aside">本页暂不讨论显著性。</p>
+
+      <section class="life-album" aria-labelledby="music-title">
+        <h2 id="music-title">音乐 · 换个频道</h2>
+        <p class="album-note">实验讲究重复，练琴也是。偶尔换一种声音，继续保持好奇。</p>
+        <h3 class="album-heading">架子鼓</h3>
+        <div class="album-grid album-grid-two">
+          <figure class="photo-slot photo-full album-photo">
+            <img src="assets/img/life-drums-1.jpg" width="1924" height="1280" alt="坐在架子鼓后，手持鼓棒练习" loading="lazy" decoding="async">
+            <figcaption>敲一敲，换换脑回路。</figcaption>
+          </figure>
+          <figure class="photo-slot photo-full album-photo">
+            <img src="assets/img/life-drums-2.jpg" width="2466" height="1279" alt="戴着红帽子和白色耳机练习架子鼓" loading="lazy" decoding="async">
+            <figcaption>跟着节拍走，暂时不赶进度。</figcaption>
+          </figure>
+        </div>
+        <h3 class="album-heading">吉他</h3>
+        <p class="album-note">滤镜负责可爱，手指负责和弦。</p>
+        <div class="album-grid album-grid-three">
+          <figure class="photo-slot photo-full album-photo">
+            <img src="assets/img/life-guitar-1.jpg" width="1024" height="2132" alt="使用小狗头像滤镜，穿绿色外衫抱着吉他" loading="lazy" decoding="async">
+            <figcaption>今天的主唱有点特别。</figcaption>
+          </figure>
+          <figure class="photo-slot photo-full album-photo">
+            <img src="assets/img/life-guitar-2.jpg" width="1280" height="2652" alt="使用小狗头像滤镜，坐着练习吉他和弦" loading="lazy" decoding="async">
+            <figcaption>和弦慢慢来。</figcaption>
+          </figure>
+          <figure class="photo-slot photo-full album-photo">
+            <img src="assets/img/life-guitar-3.jpg" width="1024" height="2138" alt="使用小狗头像滤镜，穿黑色上衣弹吉他" loading="lazy" decoding="async">
+            <figcaption>保持练习，也保持好心情。</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="life-album" aria-labelledby="running-title">
+        <h2 id="running-title">跑步 · 出去转转</h2>
+        <p class="album-note">有些思路，坐着想不通，就出去跑一跑。</p>
+        <div class="album-grid album-grid-two">
+          <figure class="photo-slot photo-full album-photo">
+            <img src="assets/img/life-running-1.jpg" width="1344" height="2912" alt="跑步数据、运动手表和夜跑自拍的拼图" loading="lazy" decoding="async">
+            <figcaption>把思路跑顺。</figcaption>
+          </figure>
+          <figure class="photo-slot photo-full album-photo">
+            <img src="assets/img/life-running-2.jpg" width="1280" height="1837" alt="跑步记录、运动手表和操场自拍的拼图" loading="lazy" decoding="async">
+            <figcaption>再往前一点。</figcaption>
+          </figure>
+        </div>
+      </section>
 
       <h2>随笔</h2>
       <ul class="entry-list">
@@ -51,8 +101,9 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
+    <div class="container footer-inner">
       <p>© 2026 二宝 · 用好奇心维护的小站 · <a href="https://github.com/erbaoyihao/erbaoyihao.github.io">本站源码</a></p>
+      <p class="footer-note">认真生活，允许跑题。</p>
     </div>
   </footer>
 

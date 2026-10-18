@@ -10,22 +10,23 @@ served directly from the `main` branch at `https://erbaoyihao.github.io`.
 
 It is a Chinese-language personal website covering 科研 (research), 教学 (teaching),
 生活 (life/essays/photography), 简历/CV, and 历届毕业生 (graduated students).
-Visual style: "多巴胺配色" — bright clashing accent colors, rounded cards with thick
-borders and hard offset shadows, playful decorations; body text stays clean and readable.
+Visual style: 黑白涂鸦 + 少量学术冷幽默 — 近白纸面、墨色大标题、手绘圈线、
+麦田卡通肖像、开放式目录与细线分隔。整体只用中性灰阶；正文保持清楚严谨，
+幽默集中在首页、页眉批注与 404。照片保留原色，不做灰度处理；首页肖像与生活相册按原比例完整展示。
 
 ## Repository layout
 
 ```
 .
-├── index.html       # 首页：自我介绍 + 板块入口卡片
+├── index.html       # 首页：麦田卡通肖像首屏 + 开放式板块目录 + 自我介绍
 ├── research.html    # 科研：方向标签、论文（按年份分组）、项目卡片
 ├── teaching.html    # 教学：课程卡片、讲义链接
-├── life.html        # 生活：随笔列表 + 摄影网格
+├── life.html        # 生活：音乐与跑步相册 + 随笔列表 + 摄影网格
 ├── cv.html          # 简历：教育/工作经历时间线、联系方式
 ├── students.html    # 历届毕业生：按届分组的 student-chip
 ├── 404.html         # 彩蛋 404 页
-├── css/style.css    # 全部样式：设计令牌（:root 变量）+ 组件 + 响应式
-├── js/main.js       # 移动端导航开合 + 当前页高亮
+├── css/style.css    # 全部样式：设计令牌（:root 变量）+ 涂鸦组件 + 响应式
+├── js/main.js       # 移动端导航开合（含 Escape 关闭）+ 当前页高亮
 ├── assets/img/      # 图片（头像、照片）放这里
 ├── README.md
 └── AGENTS.md
@@ -51,9 +52,11 @@ Before pushing, click through every page and check that navigation links resolve
 ## Editing conventions
 
 - **Colors and spacing**: change the CSS variables in `:root` at the top of
-  `css/style.css` — do not hardcode new color values in page markup. Per-section
-  accent color comes from `theme-blue` / `theme-green` / `theme-coral` /
-  `theme-yellow` classes on `<main>`.
+  `css/style.css` — do not hardcode new color values in page markup. Radius,
+  shadows, and the neutral grays all live there. Inline SVG decorations use
+  `currentColor` and CSS tokens; keep them editable and `aria-hidden`. `theme-blue` / `theme-green` /
+  `theme-coral` / `theme-yellow` / `theme-purple` classes are kept for markup
+  compatibility but now all resolve to the same ink accent (single-color scheme).
 - **Shared header/footer**: each page duplicates the same `<header class="site-header">`
   and `<footer class="site-footer">` markup (no templating). When changing the
   navigation, update **all seven** HTML files.

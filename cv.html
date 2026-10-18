@@ -8,11 +8,12 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">跳到正文</a>
   <header class="site-header">
-    <nav class="nav container">
-      <a class="nav-logo" href="index.html">二宝<span class="dot">.</span></a>
-      <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false">☰</button>
-      <ul class="nav-links">
+    <nav class="nav container" aria-label="主导航">
+      <a class="nav-logo" href="index.html">二宝<span class="dot" aria-hidden="true">✳</span></a>
+      <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false" aria-controls="site-nav">☰</button>
+      <ul class="nav-links" id="site-nav">
         <li><a href="index.html">首页</a></li>
         <li><a href="research.html">科研</a></li>
         <li><a href="teaching.html">教学</a></li>
@@ -23,10 +24,12 @@
     </nav>
   </header>
 
-  <main class="theme-yellow">
+  <main id="main-content" class="theme-yellow">
     <section class="section container">
+      <p class="page-kicker">ABOUT / 05</p>
       <h1 class="page-title">简历</h1>
       <p class="page-subtitle">我从哪里来，做过什么，怎么找到我。</p>
+      <p class="page-aside">这是简历，不是实验报告，篇幅还算可控。</p>
 
       <h2>教育经历</h2>
       <ul class="timeline">
@@ -63,14 +66,15 @@
       </p>
       <p>
         <a class="btn" href="mailto:yunw@hist.edu.cn">给我发邮件</a>
-        <a class="btn" style="--accent: var(--coral);" href="assets/cv.pdf">下载 PDF 简历</a>
+        <a class="btn" href="assets/cv.pdf">下载 PDF 简历</a>
       </p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
+    <div class="container footer-inner">
       <p>© 2026 二宝 · 用好奇心维护的小站 · <a href="https://github.com/erbaoyihao/erbaoyihao.github.io">本站源码</a></p>
+      <p class="footer-note">认真生活，允许跑题。</p>
     </div>
   </footer>
 

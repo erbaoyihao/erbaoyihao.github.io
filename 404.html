@@ -3,34 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 · 页面走丢了</title>
+  <title>404 · 这个页面尚未被观测到</title>
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    .lost-page { text-align: center; padding: 96px 0 64px; }
-    .lost-code {
-      font-size: clamp(4rem, 18vw, 9rem);
-      font-weight: 900;
-      margin: 0;
-      letter-spacing: .05em;
-    }
-    .lost-code span { display: inline-block; }
-    .lost-code .c1 { color: var(--yellow); transform: rotate(-6deg); text-shadow: 4px 4px 0 var(--ink); }
-    .lost-code .c2 { color: var(--coral);  transform: rotate(3deg) translateY(-8px); text-shadow: 4px 4px 0 var(--ink); }
-    .lost-code .c3 { color: var(--blue);   transform: rotate(7deg); text-shadow: 4px 4px 0 var(--ink); }
-    .lost-pixel {
-      font-size: 2rem;
-      margin: 24px 0 8px;
-      animation: hop 1.2s ease-in-out infinite;
-    }
-    @keyframes hop { 50% { transform: translateY(-12px); } }
-  </style>
 </head>
 <body>
-  <main class="container lost-page">
-    <p class="lost-pixel" aria-hidden="true">🏃💨</p>
-    <h1 class="lost-code"><span class="c1">4</span><span class="c2">0</span><span class="c3">4</span></h1>
-    <p>哎呀，这个页面跑丢了……<br>可能是被我拖进回收站吃掉了。</p>
-    <p><a class="btn" href="index.html">带我回首页</a></p>
+  <a class="skip-link" href="#main-content">跳到正文</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="主导航">
+      <a class="nav-logo" href="index.html">二宝<span class="dot" aria-hidden="true">✳</span></a>
+      <button class="nav-toggle" aria-label="打开菜单" aria-expanded="false" aria-controls="site-nav">☰</button>
+      <ul class="nav-links" id="site-nav">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="research.html">科研</a></li>
+        <li><a href="teaching.html">教学</a></li>
+        <li><a href="life.html">生活</a></li>
+        <li><a href="students.html">毕业生</a></li>
+        <li><a href="cv.html">简历</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" class="container lost-page">
+    <svg class="lost-magnifier" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <path d="M61 18C43 7 19 15 16 37C12 59 32 73 51 68C73 63 78 33 61 18ZM64 63L88 85L81 92L59 69M32 37L33 39M51 36L52 38M35 52Q43 47 51 51"/>
+      </g>
+    </svg>
+    <h1 class="lost-code">404</h1>
+    <p class="page-aside">这个页面，尚未被观测到。</p>
+    <p>可能是地址写错了，也可能是我还没写。<br>目前证据不足，先回首页看看。</p>
+    <p><a class="btn" href="index.html">回到已知的世界 <span aria-hidden="true">→</span></a></p>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 二宝 · 用好奇心维护的小站 · <a href="https://github.com/erbaoyihao/erbaoyihao.github.io">本站源码</a></p>
+      <p class="footer-note">认真生活，允许跑题。</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
